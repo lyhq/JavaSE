@@ -10,8 +10,8 @@ class PrintNum implements Runnable {
 	Object obj = new Object();
 	public void run() {
 		while (true) {
-			synchronized (obj) {
-				obj.notify();
+			synchronized (obj) {//拿到当前的锁
+				obj.notify();//唤醒另一个线程
 				if (num <= 100) {
 					try {
 						Thread.currentThread().sleep(10);
@@ -27,7 +27,7 @@ class PrintNum implements Runnable {
 				}
 				
 				try {
-					obj.wait();
+					obj.wait();//执行完成，进入等待另一个线程操作
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

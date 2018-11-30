@@ -1,4 +1,5 @@
 package com.lyhq.exer1;
+
 /*
  * 定义一个 User 类：
 该类包含：private成员变量（int类型） id，age；（String 类型）name。
@@ -8,34 +9,43 @@ public class User {
 	private int id;
 	private int age;
 	private String name;
+
 	public int getId() {
 		return id;
-	}
+	} 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public User(int id, int age, String name) {
 		super();
 		this.id = id;
 		this.age = age;
 		this.name = name;
 	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", age=" + age + ", name=" + name + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -45,6 +55,7 @@ public class User {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -65,5 +76,5 @@ public class User {
 			return false;
 		return true;
 	}
-	
+
 }

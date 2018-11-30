@@ -30,6 +30,7 @@ class Clerk{//店员
 			notifyAll();
 		}
 	}
+	
 	public synchronized void consumeProduct(){//消费产品
 		if(product <= 0){
 			try {
@@ -56,7 +57,7 @@ class Producer implements Runnable{//生产者
 		System.out.println("生产者开始生产产品");
 		while(true){
 			try {
-				Thread.currentThread().sleep(100);
+				Thread.currentThread().sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -76,7 +77,7 @@ class Consumer implements Runnable{//消费者
 		System.out.println("消费者消费产品");
 		while(true){
 			try {
-				Thread.currentThread().sleep(10);
+				Thread.currentThread().sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -93,15 +94,15 @@ public class TestProduceConsume {
 		Producer p1 = new Producer(clerk);
 		Consumer c1 = new Consumer(clerk);
 		Thread t1 = new Thread(p1);//一个生产者的线程
-		Thread t3 = new Thread(p1);
+//		Thread t3 = new Thread(p1);
 		Thread t2 = new Thread(c1);//一个消费者的线程
 		
 		t1.setName("生产者1");
 		t2.setName("消费者1");
-		t3.setName("生产者2");
+//		t3.setName("生产者2");
 		
 		t1.start();
 		t2.start();
-		t3.start();
+//		t3.start();
 	}
 }
